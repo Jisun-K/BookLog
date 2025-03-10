@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://dapi.kakao.com/v3/search/book";
+const BASE_URL = process.env.REACT_APP_KAKAO_API_URL || '';
 const KAKAO_KEY = process.env.REACT_APP_KAKAO_API_KEY;
 
 
