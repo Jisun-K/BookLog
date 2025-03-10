@@ -11,19 +11,18 @@ interface SearchInputProps {
 }
 
 const SearchBox = styled.form`
-    width: calc(100% - 48px);
+    width: 80%;
     height: 32px;
-    border: 1px solid lightgray;
-    border-radius: 30%;
-    padding: 8px 16px;
 `;
 
 const InputBox = styled.input`
-    width: calc(100% - 48px);
-    height: 32px;
+    width: 100%;
+    height: 100%;
     border: 1px solid lightgray;
-    border-radius: 30%;
+    border-radius: 30px;
     padding: 8px 16px;
+    background: white;
+    outline: none;
 `;
 
 
