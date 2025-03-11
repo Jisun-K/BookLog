@@ -1,4 +1,4 @@
-export interface ReportListProps {
+export interface BookListProps {
     id: number;
     state: string;
     date: Date;

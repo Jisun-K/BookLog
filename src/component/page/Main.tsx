@@ -2,6 +2,7 @@ import styled from "styled-components";
 import SearchInput from "../ui/SearchInput";
 import { useState } from "react";
 import { searchBooks } from "../../api/bookApi";
+import BooktList from "../list/BookList";
 
 const Wrapper = styled.div`
     width: 100%;
@@ -11,6 +12,7 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    overflow: scroll;
 `;
 
 function Main() {
@@ -27,6 +29,10 @@ function Main() {
         setSearchResults(results);
     };
 
+    const onClickResultBook = (book: any) => {
+        console.log("click book ===>", book);
+    }
+
     return (
         <Wrapper>
             <SearchInput
@@ -34,13 +40,11 @@ function Main() {
                 onChange={handleKeywordChange}
                 onSubmit={handleSubmit}
             />
-            {searchResults && (
-                searchResults.map((book: any) => (
-                    <li key={book.id}>
-                        <strong>{book.title}</strong> - {book.authors?.join(", ")}
-                    </li>
-                ))
-            )}
+            {searchResults &&
+                <BooktList
+                    list={searchResults}
+                    onClick={onClickResultBook}
+                />}
         </Wrapper>
     );
 
