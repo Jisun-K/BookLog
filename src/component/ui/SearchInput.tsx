@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 interface SearchInputProps {
     value: string;
+    placeholder: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onSubmit: (query: string) => void;
-    // placeholder?: string;
     // onClear?: () => void; // 검색어 지우기 기능
     // className?: string; // 추가적인 스타일링 지원
 }
@@ -21,6 +21,7 @@ const SearchBox = styled.form`
     border-radius: 30px;
     background-color: white;
     position: relative;
+    font-family: 'FreesentationLight';
 `;
 
 const InputBox = styled.input`
@@ -28,11 +29,13 @@ const InputBox = styled.input`
     padding: 8px 16px;
     border: none;
     outline: none;
+    font-family: inherit;
+    font-size: 18px;
 `;
 
 
 function SearchInput(props: SearchInputProps) {
-    const { value, onChange, onSubmit } = props;
+    const { value, placeholder, onChange, onSubmit } = props;
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
@@ -43,7 +46,7 @@ function SearchInput(props: SearchInputProps) {
     return (
         <SearchBox onSubmit={handleSubmit}>
             <InputBox
-                placeholder="책 이름을 입력하세요."
+                placeholder={placeholder}
                 value={value}
                 onChange={onChange} />
         </SearchBox>

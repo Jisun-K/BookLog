@@ -32,6 +32,7 @@ const MainContent = styled.div<{ isOpen: boolean }>`
     justify-content: center;
     align-items: center;
     height: calc(100vh - 56px);
+    flex-direction: column;
 `;
 
 function Main() {
@@ -68,6 +69,7 @@ function Main() {
                 <MainContent isOpen={isOpen}>
                     <SearchInput
                         value={searchKeyword}
+                        placeholder={"무슨 책을 찾으시나요?"}
                         onChange={handleKeywordChange}
                         onSubmit={handleSubmit}
                     />
