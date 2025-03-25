@@ -2,7 +2,8 @@ import styled from "styled-components";
 import SearchInput from "../ui/SearchInput";
 import { useState } from "react";
 import { searchBooks } from "../../api/bookApi";
-import BooktList from "../list/BookList";
+import BookList from "../list/BookList";
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
     width: 100%;
@@ -18,6 +19,7 @@ const Wrapper = styled.div`
 function Main() {
     const [searchKeyword, setSearchKeyword] = useState('');
     const [searchResults, setSearchResults] = useState([]);
+    const navigate = useNavigate();
 
     const handleKeywordChange = (event: any) => {
         setSearchKeyword(event.target.value);
@@ -29,8 +31,9 @@ function Main() {
         setSearchResults(results);
     };
 
-    const onClickResultBook = (book: any) => {
+    const onClickBookItem = (book: any) => {
         console.log("click book ===>", book);
+        navigate(`/books/${book.isbn}`);
     }
 
     return (
@@ -41,9 +44,9 @@ function Main() {
                 onSubmit={handleSubmit}
             />
             {searchResults &&
-                <BooktList
+                <BookList
                     list={searchResults}
-                    onClick={onClickResultBook}
+                    onClick={onClickBookItem}
                 />}
         </Wrapper>
     );

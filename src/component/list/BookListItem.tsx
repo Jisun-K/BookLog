@@ -1,9 +1,9 @@
 
 function BookListItem(props: any) {
-    const { book } = props;
+    const { book, onClick } = props;
 
     return (
-        <div>
+        <div onClick={onClick} style={{ cursor: "pointer" }}>
             <img src={book.thumbnail} alt={book.title} />
             {book.title}
         </div>

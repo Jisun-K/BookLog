@@ -11,17 +11,22 @@ interface SearchInputProps {
 }
 
 const SearchBox = styled.form`
-    width: 80%;
-    height: 32px;
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+    width: 100%;
+    max-width: 400px;  /* 검색창 크기 */
+    padding: 8px;
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    background-color: white;
+    position: relative;
 `;
 
 const InputBox = styled.input`
-    width: 100%;
-    height: 100%;
-    border: 1px solid lightgray;
-    border-radius: 30px;
+    width: calc(100% - 32px);
     padding: 8px 16px;
-    background: white;
+    border: none;
     outline: none;
 `;
 
