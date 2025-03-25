@@ -7,9 +7,10 @@ import { useNavigate } from "react-router-dom";
 import Sidebar from "../ui/Sidebar";
 import { Header, Logo } from "../../styles/styles";
 
-const Wrapper = styled.div`
+const Layout = styled.div`
     width: 100%;
     height: 100vh;
+    overflow-x: hidden;
     
     /* background: #f0eae4; */
     /* display: flex;
@@ -17,6 +18,19 @@ const Wrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     overflow: scroll; */
+`;
+
+const ContentWrapper = styled.div<{ isOpen: boolean }>`
+    margin-left: ${props => (props.isOpen ? '250px' : '0')};  // 사이드바 크기에 맞게 왼쪽 여백 조정
+    transition: margin-left 0.3s ease; // 애니메이션
+    width: 100%;
+`;
+
+const MainContent = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 56px);
 `;
 
 function Main() {
@@ -41,24 +55,30 @@ function Main() {
     }
 
     return (
-        <Wrapper>
-            {
-                !isOpen && <Header>
-                    <Logo src="logo192.png" alt="logo" onClick={() => setIsOpen(!isOpen)} />
-                </Header>
-            }
+        <Layout>
             <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
-            {/* <SearchInput
-                value={searchKeyword}
-                onChange={handleKeywordChange}
-                onSubmit={handleSubmit}
-            />
-            {searchResults &&
-                <BookList
-                    list={searchResults}
-                    onClick={onClickBookItem}
-                />} */}
-        </Wrapper>
+
+            <ContentWrapper isOpen={isOpen} >
+                <Header>
+                    {!isOpen &&
+                        <Logo src="logo192.png" alt="logo" onClick={() => setIsOpen(!isOpen)} />
+                    }
+                </Header>
+                <MainContent>
+                    <SearchInput
+                        value={searchKeyword}
+                        onChange={handleKeywordChange}
+                        onSubmit={handleSubmit}
+                    />
+                    {searchResults &&
+                        <BookList
+                            list={searchResults}
+                            onClick={onClickBookItem}
+                        />}
+                </MainContent>
+
+            </ContentWrapper>
+        </Layout>
     );
 
 }

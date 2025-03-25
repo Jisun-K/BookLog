@@ -50,4 +50,4 @@ function SearchInput(props: SearchInputProps) {
     )
 }
 
-export default SearchInput;
+export default SearchInput;  
