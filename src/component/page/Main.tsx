@@ -4,19 +4,23 @@ import { useState } from "react";
 import { searchBooks } from "../../api/bookApi";
 import BookList from "../list/BookList";
 import { useNavigate } from "react-router-dom";
+import Sidebar from "../ui/Sidebar";
+import { Header, Logo } from "../../styles/styles";
 
 const Wrapper = styled.div`
     width: 100%;
     height: 100vh;
-    background: #f0eae4;
-    display: flex;
+    
+    /* background: #f0eae4; */
+    /* display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    overflow: scroll;
+    overflow: scroll; */
 `;
 
 function Main() {
+    const [isOpen, setIsOpen] = useState(true);
     const [searchKeyword, setSearchKeyword] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const navigate = useNavigate();
@@ -38,7 +42,13 @@ function Main() {
 
     return (
         <Wrapper>
-            <SearchInput
+            {
+                !isOpen && <Header>
+                    <Logo src="logo192.png" alt="logo" onClick={() => setIsOpen(!isOpen)} />
+                </Header>
+            }
+            <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
+            {/* <SearchInput
                 value={searchKeyword}
                 onChange={handleKeywordChange}
                 onSubmit={handleSubmit}
@@ -47,7 +57,7 @@ function Main() {
                 <BookList
                     list={searchResults}
                     onClick={onClickBookItem}
-                />}
+                />} */}
         </Wrapper>
     );
 

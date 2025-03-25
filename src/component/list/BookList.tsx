@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import BookListItem from "./BookListItem";
 
-const GridWrapper = styled.div`
+const GridContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 자동 조정 */
     gap: 16px;
@@ -15,7 +15,7 @@ function BookList(props: any) {
     const { list, onClick } = props;
 
     return (
-        <GridWrapper>
+        <GridContainer>
             {
                 list.map((book: any) => (
                     <BookListItem
@@ -24,7 +24,7 @@ function BookList(props: any) {
                         onClick={() => onClick(book)} />
                 ))
             }
-        </GridWrapper>
+        </GridContainer>
     )
 }
 
