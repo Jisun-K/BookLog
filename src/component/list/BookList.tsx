@@ -3,7 +3,9 @@ import BookListItem from "./BookListItem";
 
 const GridWrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 자동 조정 */
+    gap: 16px;
+    flex-wrap: wrap;
     /* width: 80%;
     height: 32px; */
 `;

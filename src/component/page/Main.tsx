@@ -33,7 +33,7 @@ function Main() {
 
     const onClickBookItem = (book: any) => {
         console.log("click book ===>", book);
-        navigate(`/books/${book.isbn}`);
+        navigate(`/books/${book.isbn}`, { state: book });
     }
 
     return (
