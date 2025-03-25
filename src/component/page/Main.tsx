@@ -22,11 +22,12 @@ const Layout = styled.div`
 
 const ContentWrapper = styled.div<{ isOpen: boolean }>`
     margin-left: ${props => (props.isOpen ? '250px' : '0')};  // 사이드바 크기에 맞게 왼쪽 여백 조정
-    transition: margin-left 0.3s ease; // 애니메이션
+    transition: margin-left 0.5s ease; // 애니메이션
     width: 100%;
 `;
 
-const MainContent = styled.div`
+const MainContent = styled.div<{ isOpen: boolean }>`
+    width: ${props => (props.isOpen ? 'calc(100% - 250px)' : '100%')};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,7 +65,7 @@ function Main() {
                         <Logo src="logo192.png" alt="logo" onClick={() => setIsOpen(!isOpen)} />
                     }
                 </Header>
-                <MainContent>
+                <MainContent isOpen={isOpen}>
                     <SearchInput
                         value={searchKeyword}
                         onChange={handleKeywordChange}
