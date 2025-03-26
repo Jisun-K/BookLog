@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Outlet, useNavigate } from "react-router-dom";
 import Sidebar from "../ui/Sidebar";
 import { useAppContext } from "../../context/AppContext";
+import { Header, Logo } from "../../styles/styles";
 
 const Layout = styled.div`
     width: 100%;
@@ -31,7 +32,11 @@ function Main() {
     return (
         <Layout>
             <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
-
+            <Header>
+                {!isOpen &&
+                    <Logo src="logo192.png" alt="logo" onClick={() => setIsOpen(!isOpen)} />
+                }
+            </Header>
             <ContentWrapper isOpen={isOpen} >
                 <Outlet />
             </ContentWrapper>

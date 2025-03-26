@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Header, Logo } from "../../styles/styles";
 import SearchInput from "../ui/SearchInput";
 import BookList from "../list/BookList";
 import { useNavigate } from "react-router-dom";
@@ -31,11 +30,6 @@ function Home() {
 
     return (
         <>
-            <Header>
-                {!isOpen &&
-                    <Logo src="logo192.png" alt="logo" onClick={() => setIsOpen(!isOpen)} />
-                }
-            </Header>
             <MainContent isOpen={isOpen}>
                 <SearchInput
                     value={searchKeyword}
