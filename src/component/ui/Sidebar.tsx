@@ -20,7 +20,7 @@ function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean; setIsOpen: React.Disp
     return (
         <SidebarContainer isOpen={isOpen}>
             <Header>
-                <Logo src="logo192.png" alt="logo" onClick={() => setIsOpen(!isOpen)} />
+                <Logo src="../logo192.png" alt="logo" onClick={() => setIsOpen(!isOpen)} />
             </Header>
         </SidebarContainer>
     )

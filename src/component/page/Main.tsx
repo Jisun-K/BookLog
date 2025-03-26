@@ -34,7 +34,7 @@ function Main() {
             <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
             <Header>
                 {!isOpen &&
-                    <Logo src="logo192.png" alt="logo" onClick={() => setIsOpen(!isOpen)} />
+                    <Logo src="../logo192.png" alt="logo" onClick={() => setIsOpen(!isOpen)} />
                 }
             </Header>
             <ContentWrapper isOpen={isOpen} >

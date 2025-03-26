@@ -7,8 +7,9 @@ const GridContainer = styled.div`
     gap: 1rem;
     flex-wrap: wrap;
     margin: 1rem 0 0 0;
-    /* width: 80%;
-    height: 32px; */
+    /* height: calc(100% - 56px - 28px); */
+    overflow: scroll;
+    width: 100%;
 `;
 
 

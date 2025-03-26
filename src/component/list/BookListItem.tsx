@@ -11,12 +11,19 @@ const Thumbnail = styled.img`
     height: 175px;
 `;
 
+const NoThumbnail = styled(Thumbnail)`
+    border: 1px solid black;
+`;
+
+
 function BookListItem(props: any) {
     const { book, onClick } = props;
 
     return (
         <BookItem onClick={onClick}>
-            <Thumbnail src={book.thumbnail} alt={book.title} />
+            {book.thumbnail
+                ? <Thumbnail src={book.thumbnail} alt={book.title} />
+                : <NoThumbnail />}
             {book.title}
         </BookItem>
     )

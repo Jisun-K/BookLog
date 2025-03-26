@@ -4,6 +4,7 @@ import Main from './component/page/Main';
 import BookDetail from './component/page/BookDetail';
 import Home from './component/page/Home';
 import { AppProvider } from './context/AppContext';
+import WriteReport from './component/page/WriteReport';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path='/' element={<Main />}>
             <Route index element={<Home />} />
             <Route path='/books/:id' element={<BookDetail />} />
+            <Route path='/write/:id' element={<WriteReport />} />
           </Route>
         </Routes>
       </BrowserRouter>
